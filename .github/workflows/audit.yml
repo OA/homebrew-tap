@@ -1,0 +1,24 @@
+name: audit
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap this repo
+        run: brew tap "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}" "$GITHUB_WORKSPACE"
+
+      - name: Style
+        run: brew style "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}"
+
+      - name: Audit
+        run: brew audit --cask --online --tap "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}"
