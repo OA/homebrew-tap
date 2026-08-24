@@ -13,6 +13,8 @@ cask "buskill" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   # The .app bundle carries the version in its name, so it must be interpolated.
   app "buskill-v#{version}.app"
   binary "#{appdir}/buskill-v#{version}.app/Contents/MacOS/buskill"
@@ -24,27 +26,28 @@ cask "buskill" do
     "~/Applications/.buskill",
   ]
 
-  caveats <<~EOS
-    The upstream BusKill build is only ad-hoc signed (no Developer ID, no
-    notarization), and it is an x86_64-only binary.
+  caveats do
+    requires_rosetta
+    <<~EOS
+      The upstream BusKill build is ad-hoc signed: no Developer ID and no
+      notarization ticket. On macOS 15 and later, Gatekeeper blocks it the first
+      time it is launched from Finder ("Apple could not verify ... is free of
+      malware"). This happens whether or not it was installed with
+      --no-quarantine, because the notarization check no longer depends on the
+      quarantine flag.
 
-      * Gatekeeper will refuse to open it if it was installed with quarantine.
-        Install it with:
+      To approve it, dismiss that dialog with "Done", then open
+        System Settings > Privacy & Security
+      and click "Open Anyway" for buskill-v#{version}.app.
 
-            brew install --cask --no-quarantine buskill
+      The bundled CLI is not subject to this and works straight away:
+        buskill --help
 
-        or clear the flag on an already-installed copy:
+      BusKill stores its config next to the app bundle, e.g.
+      #{appdir}/.buskill/config.ini
 
-            xattr -dr com.apple.quarantine "#{appdir}/buskill-v#{version}.app"
-
-      * On Apple Silicon it runs under Rosetta 2:
-
-            softwareupdate --install-rosetta --agree-to-license
-
-    BusKill stores its config next to the app bundle, e.g.
-    #{appdir}/.buskill/config.ini
-
-    Do not use the app's built-in "-U/--upgrade" updater; it installs a second
-    copy outside of Homebrew's control. Use `brew upgrade --cask buskill`.
-  EOS
+      Do not use the app's built-in "-U/--upgrade" updater; it installs a second
+      copy outside of Homebrew's control. Use `brew upgrade --cask buskill`.
+    EOS
+  end
 end

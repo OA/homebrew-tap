@@ -12,15 +12,20 @@ brew tap OA/tap
 brew install --cask --no-quarantine buskill
 ```
 
-`--no-quarantine` is required. Upstream ships an **ad-hoc signed** build (no
-Apple Developer ID, no notarization), so Gatekeeper will otherwise refuse to
-launch it with a "damaged / cannot be opened" error. If you already installed
-without it:
+Upstream ships an **ad-hoc signed** build: no Apple Developer ID and no
+notarization ticket. On macOS 15 and later, Gatekeeper blocks it the first time
+you launch it from Finder with *"Apple could not verify ... is free of malware"*.
+This happens **whether or not** `--no-quarantine` was used — the notarization
+check no longer depends on the quarantine flag.
 
-```sh
-xattr -dr com.apple.quarantine "$(brew --prefix)/../Caskroom/buskill" 2>/dev/null
-xattr -dr com.apple.quarantine /Applications/buskill-v*.app
-```
+To approve it: dismiss the dialog with **Done** (not *Move to Trash*), then open
+**System Settings > Privacy & Security** and click **Open Anyway** for
+`buskill-v0.7.0.app`.
+
+`--no-quarantine` is still worth passing; it avoids stacking the separate
+downloaded-from-the-internet prompt on top.
+
+The bundled CLI is not affected and works immediately.
 
 ## Usage
 
