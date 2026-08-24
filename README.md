@@ -9,21 +9,19 @@ runs a custom trigger on your machine when it is physically separated from you.
 
 ```sh
 brew tap OA/tap
-brew install --cask --no-quarantine buskill
+brew install --cask buskill
 ```
 
 Upstream ships an **ad-hoc signed** build: no Apple Developer ID and no
 notarization ticket. On macOS 15 and later, Gatekeeper blocks it the first time
 you launch it from Finder with *"Apple could not verify ... is free of malware"*.
-This happens **whether or not** `--no-quarantine` was used — the notarization
-check no longer depends on the quarantine flag.
+Stripping `com.apple.quarantine` does **not** help — the notarization check no
+longer depends on that flag, and Homebrew removed the `--no-quarantine` option
+entirely in 5.x.
 
 To approve it: dismiss the dialog with **Done** (not *Move to Trash*), then open
 **System Settings > Privacy & Security** and click **Open Anyway** for
 `buskill-v0.7.0.app`.
-
-`--no-quarantine` is still worth passing; it avoids stacking the separate
-downloaded-from-the-internet prompt on top.
 
 The bundled CLI is not affected and works immediately.
 

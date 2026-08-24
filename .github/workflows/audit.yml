@@ -44,7 +44,7 @@ jobs:
       - name: Install smoke test
         run: |
           brew trust --cask oa/tap/buskill
-          brew install --cask --no-quarantine oa/tap/buskill
+          brew install --cask oa/tap/buskill
           test -d "/Applications/buskill-v0.7.0.app"
           test -x "$(brew --prefix)/bin/buskill"
           brew uninstall --cask oa/tap/buskill

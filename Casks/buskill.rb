@@ -32,9 +32,8 @@ cask "buskill" do
       The upstream BusKill build is ad-hoc signed: no Developer ID and no
       notarization ticket. On macOS 15 and later, Gatekeeper blocks it the first
       time it is launched from Finder ("Apple could not verify ... is free of
-      malware"). This happens whether or not it was installed with
-      --no-quarantine, because the notarization check no longer depends on the
-      quarantine flag.
+      malware"). Stripping the com.apple.quarantine attribute does not help:
+      the notarization check no longer depends on that flag.
 
       To approve it, dismiss that dialog with "Done", then open
         System Settings > Privacy & Security
