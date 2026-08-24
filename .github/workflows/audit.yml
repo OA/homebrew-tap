@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     runs-on: macos-latest
@@ -14,11 +18,25 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Tap this repo
-        run: brew tap "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}" "$GITHUB_WORKSPACE"
+      # Symlink rather than `brew tap <name> <path>`, whose two-argument form
+      # Homebrew has deprecated for third-party taps.
+      - name: Link tap into Homebrew
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/oa/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -sfn "$GITHUB_WORKSPACE" "$tap_dir"
+          brew tap
 
-      - name: Style
-        run: brew style "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}"
+      - name: brew style
+        run: brew style oa/tap
 
-      - name: Audit
-        run: brew audit --cask --online --tap "${GITHUB_REPOSITORY%/homebrew-*}/${GITHUB_REPOSITORY#*/homebrew-}"
+      - name: brew audit
+        run: brew audit --cask --online --tap oa/tap
+
+      # Proves the DMG mounts and the versioned .app bundle name resolves.
+      - name: Install smoke test
+        run: |
+          brew install --cask --no-quarantine oa/tap/buskill
+          test -d "/Applications/buskill-v$(brew info --cask --json=v2 oa/tap/buskill | \
+            python3 -c 'import json,sys; print(json.load(sys.stdin)["casks"][0]["version"])').app"
+          brew uninstall --cask oa/tap/buskill

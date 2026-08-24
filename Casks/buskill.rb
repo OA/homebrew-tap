@@ -5,7 +5,7 @@ cask "buskill" do
   url "https://github.com/BusKill/buskill-app/releases/download/v#{version}/buskill-mac-v#{version}-x86_64.dmg",
       verified: "github.com/BusKill/buskill-app/"
   name "BusKill"
-  desc "Laptop kill cord that locks or shuts down your machine when it is physically separated from you"
+  desc "Laptop kill cord that triggers a lockdown when unplugged"
   homepage "https://www.buskill.in/"
 
   livecheck do
@@ -13,18 +13,15 @@ cask "buskill" do
     strategy :github_latest
   end
 
-  # The app ships an `--upgrade` self-updater. Leave updates to brew instead.
-  auto_updates false
-
   # The .app bundle carries the version in its name, so it must be interpolated.
   app "buskill-v#{version}.app"
   binary "#{appdir}/buskill-v#{version}.app/Contents/MacOS/buskill"
 
   zap trash: [
     "#{appdir}/.buskill",
+    "/Applications/.buskill",
     "~/.buskill",
     "~/Applications/.buskill",
-    "/Applications/.buskill",
   ]
 
   caveats <<~EOS
