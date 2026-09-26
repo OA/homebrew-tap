@@ -63,5 +63,4 @@ person concerned.
 ## Attribution
 
 This document is written for this project rather than adapted from a
-standard template. If it conflicts with a Thalassa Trust organization
-policy, the organization policy governs.
+standard template.

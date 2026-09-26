@@ -13,8 +13,7 @@ finished.
 VOICE.md meet — comments — this one is narrower and wins: it permits fewer than
 VOICE.md's limits allow. VOICE.md still governs every comment that survives.
 
-The organization-wide copy is `thalassa-trust/thalassa`'s
-`docs/CODING-STANDARD.md`. § General and § Comments are that file. Language
+§ General and § Comments apply to every file in this tree. Language
 sections exist only for languages this tree has files in.
 
 ## General

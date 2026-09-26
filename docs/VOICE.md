@@ -1,7 +1,7 @@
 # Voice
 
-This file is `thalassa-trust/thalassa`'s `docs/VOICE.md`, copied. A difference
-from that file, other than the preface below, is a defect.
+§ This repository adapts the rules below to this tap. Any other difference
+from them is a defect.
 
 ## This repository
 

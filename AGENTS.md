@@ -1,8 +1,7 @@
 # Repository rules
 
-The organization-wide rules are `thalassa-trust/thalassa`'s `AGENTS.md`,
-`docs/VOICE.md` and `docs/CODING-STANDARD.md`. Sections marked
-**organization-wide** are those rules, and where this file and those differ,
+Sections marked **organization-wide** apply to every file in this tree.
+Where this file and `docs/VOICE.md` or `docs/CODING-STANDARD.md` differ,
 this file is the defect. Everything else is specific to this tap.
 
 ## What this repository is
