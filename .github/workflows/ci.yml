@@ -1,0 +1,247 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  workflows:
+    name: Workflows and prose
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: actionlint
+        uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2.2.0
+
+      - name: pinact
+        uses: suzuki-shunsuke/pinact-action@896d595f299e71d65b9d28349d6956abe144390a # v3.0.0
+
+      - name: zizmor
+        uses: zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99 # v0.6.3
+        with:
+          advanced-security: false
+
+      # No published action. Fetch and checksum. Pin matches github-org.
+      - name: ghalint
+        env:
+          GHALINT_VERSION: "1.5.6"
+          GHALINT_SHA256: "98ee0e3330de7286f470d1e89c03ff7ce70d7a5998ba0f15969c400447be579c"
+        run: |
+          set -euo pipefail
+          workdir="$(mktemp -d)"
+          curl --fail --silent --show-error --location --retry 3 \
+            --output "${workdir}/ghalint.tar.gz" \
+            "https://github.com/suzuki-shunsuke/ghalint/releases/download/v${GHALINT_VERSION}/ghalint_${GHALINT_VERSION}_linux_amd64.tar.gz"
+          echo "${GHALINT_SHA256}  ${workdir}/ghalint.tar.gz" | sha256sum --check --strict -
+          tar --extract --gzip --file "${workdir}/ghalint.tar.gz" --directory "${workdir}" ghalint
+          "${workdir}/ghalint" run
+
+      # v2.2.0 looks for ec-linux-amd64* and misses it here.
+      - name: editorconfig-checker
+        uses: editorconfig-checker/action-editorconfig-checker@51f63319f592f97930c73d9c46184d20bd206393 # v3.0.0
+
+      # Offline: a dead external URL must not fail the gate.
+      - name: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --offline .
+          fail: true
+
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
+
+      - name: typos
+        uses: crate-ci/typos@d43b6c087ac471e2ea7b8af622ff15f05c0c365b # v1.50.1
+
+  brew:
+    name: Homebrew
+    runs-on: macos-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@f8d4222eb633e65c2a0157383cf80861fc7fae7f # 2026.09.07.1
+
+      # Two-argument `brew tap` is deprecated for third-party taps.
+      - name: Link tap into Homebrew
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/thalassa-trust/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -sfn "$GITHUB_WORKSPACE" "$tap_dir"
+
+      - name: brew style
+        run: brew style thalassa-trust/tap
+
+      - name: brew audit casks
+        env:
+          # Without this, brew audit --online is rate-limited.
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: brew audit --cask --online --tap thalassa-trust/tap
+
+      - name: brew audit formulae
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: brew audit --formula --online --tap thalassa-trust/tap
+
+  smoke:
+    name: Install ${{ matrix.cask }}${{ matrix.formula }}
+    runs-on: macos-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - cask: buskill
+            formula: ""
+            app: buskill-v
+            binary: buskill
+            versioned-app: true
+          - cask: cua-driver
+            formula: ""
+            app: CuaDriver
+            binary: cua-driver
+            versioned-app: false
+          - cask: kraken-desktop
+            formula: ""
+            app: Kraken Desktop
+            binary: ""
+            versioned-app: false
+          - cask: ""
+            formula: beankeeper
+            app: ""
+            binary: bk
+            versioned-app: false
+          - cask: ""
+            formula: mewt
+            app: ""
+            binary: mewt
+            versioned-app: false
+          - cask: ""
+            formula: muton
+            app: ""
+            binary: muton
+            versioned-app: false
+          - cask: ""
+            formula: rustfilt
+            app: ""
+            binary: rustfilt
+            versioned-app: false
+          - cask: ""
+            formula: blacksmith
+            app: ""
+            binary: blacksmith
+            versioned-app: false
+          - cask: ""
+            formula: knip
+            app: ""
+            binary: knip
+            versioned-app: false
+          - cask: ""
+            formula: pgrun
+            app: ""
+            binary: pgrun
+            versioned-app: false
+          - cask: ""
+            formula: pplx
+            app: ""
+            binary: pplx
+            versioned-app: false
+          - cask: ""
+            formula: proton-cli
+            app: ""
+            binary: proton
+            versioned-app: false
+          - cask: ""
+            formula: vencord-installer
+            app: ""
+            binary: vencord-installer
+            versioned-app: false
+    permissions:
+      contents: read
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@f8d4222eb633e65c2a0157383cf80861fc7fae7f # 2026.09.07.1
+
+      # Two-argument `brew tap` is deprecated for third-party taps.
+      - name: Link tap into Homebrew
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/thalassa-trust/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -sfn "$GITHUB_WORKSPACE" "$tap_dir"
+
+      # Homebrew refuses untrusted third-party casks. Trust, then install.
+      - name: Install smoke test
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${{ matrix.formula }}" ]]; then
+            formula="${{ matrix.formula }}"
+            brew install "thalassa-trust/tap/${formula}"
+            test -x "$(brew --prefix)/bin/${{ matrix.binary }}"
+            brew uninstall "thalassa-trust/tap/${formula}"
+            exit 0
+          fi
+          cask="${{ matrix.cask }}"
+          brew trust --cask "thalassa-trust/tap/${cask}"
+          brew install --cask "thalassa-trust/tap/${cask}"
+          version="$(sed -n 's/^  version "\(.*\)"/\1/p' "Casks/${cask}.rb")"
+          test -n "${version}"
+          app="${{ matrix.app }}"
+          if [[ "${{ matrix['versioned-app'] }}" = true ]]; then
+            app="${app}${version}"
+          fi
+          test -d "/Applications/${app}.app"
+          binary="${{ matrix.binary }}"
+          if [[ -n "${binary}" ]]; then
+            test -x "$(brew --prefix)/bin/${binary}"
+          fi
+          brew uninstall --cask "thalassa-trust/tap/${cask}"
+
+  gate:
+    name: "gate:ci"
+    if: always()
+    needs: [workflows, brew, smoke]
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Require every dependency to succeed
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          set -euo pipefail
+          test -n "${RESULTS}"
+          for result in ${RESULTS}; do test "${result}" = success; done

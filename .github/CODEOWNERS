@@ -1,0 +1,6 @@
+# Not a review control. One member cannot satisfy require_code_owner_review.
+
+* @oa
+
+/Casks/ @oa
+/.github/ @oa

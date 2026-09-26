@@ -1,0 +1,7 @@
+{
+  "config": {
+    // Line length is the wrap. MD013 would fight it.
+    "MD013": false
+  },
+  "globs": ["**/*.md"]
+}

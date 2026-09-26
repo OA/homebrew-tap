@@ -1,0 +1,4 @@
+# Offline: a dead external URL must not fail the gate.
+exclude_path = [".git"]
+include_fragments = "anchor-only"
+timeout = 10
