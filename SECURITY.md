@@ -2,10 +2,7 @@
 
 ## Reporting a vulnerability
 
-Write to `mail@fiona.sm`. Encrypt a sensitive report to the key at
-<https://fiona.sm/fiona.asc>.
-
-GitHub private vulnerability reporting is on. Use it or the mailbox. Do not
+GitHub private vulnerability reporting is on. Use it. Do not
 open an issue for a vulnerability. An issue here is public.
 
 Do not include a working exploit, a real credential, or a captured

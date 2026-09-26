@@ -49,7 +49,7 @@ only configured is the same failure in a different medium.
 
 ## Reporting
 
-Report a concern to `@oa` at `mail@fiona.sm`. Reports are handled
+Report a concern to `@oa`. Reports are handled
 privately. If the report concerns the maintainer, say so plainly in the
 message; it will still be read.
 
