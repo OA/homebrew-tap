@@ -9,7 +9,7 @@ A Homebrew tap for macOS applications.
 ## Install
 
 ```sh
-brew tap thalassa-trust/tap
+brew tap oa/tap
 brew install --cask buskill
 brew install --cask cua-driver
 brew install --cask kraken-desktop

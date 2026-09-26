@@ -89,23 +89,23 @@ jobs:
       # Two-argument `brew tap` is deprecated for third-party taps.
       - name: Link tap into Homebrew
         run: |
-          tap_dir="$(brew --repository)/Library/Taps/thalassa-trust/homebrew-tap"
+          tap_dir="$(brew --repository)/Library/Taps/oa/homebrew-tap"
           mkdir -p "$(dirname "$tap_dir")"
           ln -sfn "$GITHUB_WORKSPACE" "$tap_dir"
 
       - name: brew style
-        run: brew style thalassa-trust/tap
+        run: brew style oa/tap
 
       - name: brew audit casks
         env:
           # Without this, brew audit --online is rate-limited.
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: brew audit --cask --online --tap thalassa-trust/tap
+        run: brew audit --cask --online --tap oa/tap
 
       - name: brew audit formulae
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: brew audit --formula --online --tap thalassa-trust/tap
+        run: brew audit --formula --online --tap oa/tap
 
   smoke:
     name: Install ${{ matrix.cask }}${{ matrix.formula }}
@@ -197,7 +197,7 @@ jobs:
       # Two-argument `brew tap` is deprecated for third-party taps.
       - name: Link tap into Homebrew
         run: |
-          tap_dir="$(brew --repository)/Library/Taps/thalassa-trust/homebrew-tap"
+          tap_dir="$(brew --repository)/Library/Taps/oa/homebrew-tap"
           mkdir -p "$(dirname "$tap_dir")"
           ln -sfn "$GITHUB_WORKSPACE" "$tap_dir"
 
@@ -209,14 +209,14 @@ jobs:
           set -euo pipefail
           if [[ -n "${{ matrix.formula }}" ]]; then
             formula="${{ matrix.formula }}"
-            brew install "thalassa-trust/tap/${formula}"
+            brew install "oa/tap/${formula}"
             test -x "$(brew --prefix)/bin/${{ matrix.binary }}"
-            brew uninstall "thalassa-trust/tap/${formula}"
+            brew uninstall "oa/tap/${formula}"
             exit 0
           fi
           cask="${{ matrix.cask }}"
-          brew trust --cask "thalassa-trust/tap/${cask}"
-          brew install --cask "thalassa-trust/tap/${cask}"
+          brew trust --cask "oa/tap/${cask}"
+          brew install --cask "oa/tap/${cask}"
           version="$(sed -n 's/^  version "\(.*\)"/\1/p' "Casks/${cask}.rb")"
           test -n "${version}"
           app="${{ matrix.app }}"
@@ -228,7 +228,7 @@ jobs:
           if [[ -n "${binary}" ]]; then
             test -x "$(brew --prefix)/bin/${binary}"
           fi
-          brew uninstall --cask "thalassa-trust/tap/${cask}"
+          brew uninstall --cask "oa/tap/${cask}"
 
   gate:
     name: "gate:ci"

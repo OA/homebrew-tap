@@ -39,7 +39,7 @@ jobs:
       # points at this checkout and the change lands in the working tree.
       - name: Tap this checkout
         run: |
-          tap_dir="$(brew --repository)/Library/Taps/thalassa-trust/homebrew-tap"
+          tap_dir="$(brew --repository)/Library/Taps/oa/homebrew-tap"
           mkdir -p "$(dirname "$tap_dir")"
           ln -s "${GITHUB_WORKSPACE}" "${tap_dir}"
 
@@ -48,7 +48,7 @@ jobs:
         env:
           FORMULA: ${{ matrix.formula }}
         run: |
-          latest="$(brew livecheck --formula --newer-only --quiet --json "thalassa-trust/tap/${FORMULA}" | jq -r '.[0].version.latest // empty')"
+          latest="$(brew livecheck --formula --newer-only --quiet --json "oa/tap/${FORMULA}" | jq -r '.[0].version.latest // empty')"
           printf 'version=%s\n' "${latest}" >> "${GITHUB_OUTPUT}"
           printf 'resolved %s for %s\n' "${latest:-no newer version}" "${FORMULA}"
 
@@ -59,7 +59,7 @@ jobs:
           VERSION: ${{ steps.livecheck.outputs.version }}
         run: |
           brew bump-formula-pr --write-only --no-audit --no-browse \
-            --version "${VERSION}" "thalassa-trust/tap/${FORMULA}"
+            --version "${VERSION}" "oa/tap/${FORMULA}"
 
       # sign-commits writes through the API, which signs. The signature ruleset
       # rejects what the git CLI would push.
