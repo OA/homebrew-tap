@@ -11,8 +11,10 @@ class Mergetopus < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "oa/tap/cargo-bundle-licenses" => :build
 
   def install
+    system "cargo-bundle-licenses", "--format", "json", "--output", "THIRDPARTY.json"
     system "cargo", "install", *std_cargo_args
   end
 

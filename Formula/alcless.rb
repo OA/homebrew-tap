@@ -14,8 +14,7 @@ class Alcless < Formula
   depends_on :macos
 
   def install
-    bin.install "bin/alcless"
-    bin.install "bin/alclessctl"
+    bin.install "alcless", "alclessctl"
   end
 
   test do
