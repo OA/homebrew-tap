@@ -28,7 +28,7 @@ class Smolvm < Formula
   end
 
   def install
-    bin.install Dir["smolvm-*/smolvm", "smolvm-*/smolvm-bin"]
+    bin.install "smolvm", "smolvm-bin"
   end
 
   test do
