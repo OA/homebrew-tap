@@ -28,7 +28,9 @@ class Smolvm < Formula
   end
 
   def install
-    bin.install "smolvm", "smolvm-bin"
+    libexec.install "smolvm", "smolvm-bin", "lib", "agent-rootfs",
+                    "overlay-template.ext4.zst", "storage-template.ext4.zst"
+    bin.install_symlink libexec/"smolvm"
   end
 
   test do
