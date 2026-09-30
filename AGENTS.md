@@ -139,8 +139,12 @@ Permissions are set per-job to the minimum required. Aggregate gate jobs carry
 ## Commits (organization-wide)
 
 ```bash
-GIT_CONFIG_GLOBAL=/Users/oa/.config/git/bot.config git commit -m "..."
+git-bot commit -m "..."
 ```
+
+`git-bot` is `git` carrying the bot's own config and `ssh-bot` as its
+transport, and is on `PATH` once the machine configuration is applied. Never
+export `GIT_CONFIG_GLOBAL` or `GIT_SSH_COMMAND`; `git-bot` sets both.
 
 Author `bot@fiona.sm`, signed with a locally held key. The human's key is on a
 YubiKey that needs a physical touch, so an unattended process using it hangs
