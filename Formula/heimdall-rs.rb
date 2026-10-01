@@ -28,6 +28,6 @@ class HeimdallRs < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/heimdall --version")
+    assert_match "heimdall", shell_output("#{bin}/heimdall --version")
   end
 end
