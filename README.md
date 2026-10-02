@@ -1,28 +1,32 @@
 # homebrew-tap
 
-A Homebrew tap for macOS applications.
-
-| What | Value |
-| --- | --- |
-| Rules | `AGENTS.md`, `docs/VOICE.md`, `docs/CODING-STANDARD.md` |
+A Homebrew tap for macOS casks and formulae.
 
 ## Install
 
 ```sh
 brew tap oa/tap
-brew install --cask buskill
-brew install --cask cua-driver
-brew install --cask kraken-desktop
-brew install beankeeper
-brew install blacksmith
-brew install knip
-brew install mewt
-brew install muton
-brew install pgrun
-brew install pplx
-brew install proton-cli
-brew install rustfilt
-brew install vencord-installer
+brew install --cask oa/tap/buskill
+brew install --cask oa/tap/cua-driver
+brew install --cask oa/tap/kraken-desktop
+brew install oa/tap/alcless
+brew install oa/tap/ax
+brew install oa/tap/beankeeper
+brew install oa/tap/blacksmith
+brew install oa/tap/canopy
+brew install oa/tap/codex-security
+brew install oa/tap/gh-secure
+brew install oa/tap/knip
+brew install oa/tap/mergetopus
+brew install oa/tap/mewt
+brew install oa/tap/muton
+brew install oa/tap/pgrun
+brew install oa/tap/pplx
+brew install oa/tap/proton-cli
+brew install oa/tap/rustfilt
+brew install oa/tap/treepeat
+brew install oa/tap/vencord-installer
+brew install oa/tap/vize
 ```
 
 | Cask | Application |
@@ -33,18 +37,29 @@ brew install vencord-installer
 
 | Formula | Tool |
 | --- | --- |
+| `alcless` | [Sandbox for Homebrew and agent commands](https://github.com/AkihiroSuda/alcless) |
+| `ax` | [Agent workload orchestrator for Kubernetes](https://github.com/google/ax) |
 | `beankeeper` | [Double-entry accounting CLI](https://github.com/Govcraft/beankeeper) |
 | `blacksmith` | [CI runner CLI](https://blacksmith.sh) |
+| `canopy` | [Local runner, linter and language server for Actions workflows](https://github.com/ferranbt/canopy) |
+| `codex-security` | [TypeScript SDK and CLI](https://github.com/openai/codex-security) |
+| `gh-secure` | [GitHub CLI extension for repository security features](https://github.com/GitHubSecurityLab/gh-secure) |
 | `knip` | [Unused export finder](https://knip.dev) |
+| `mergetopus` | [Per-conflict branch splitting for complex merges](https://github.com/mwallner/mergetopus) |
 | `mewt` | [Mutation testing framework](https://github.com/trailofbits/mewt) |
 | `muton` | [TON mutation testing](https://github.com/trailofbits/muton) |
 | `pgrun` | [Create, use, and delete disposable PGRun Postgres branches](https://pgrun.dev) |
 | `pplx` | [Perplexity AI CLI](https://github.com/perplexityai/perplexity-cli) |
 | `proton-cli` | [CLI for Proton Mail, Drive, Calendar, Pass and Contacts](https://github.com/roman-16/proton-cli) |
 | `rustfilt` | [Rust symbol demangler](https://github.com/luser/rustfilt) |
+| `treepeat` | [Duplicate code finder over tree-sitter ASTs](https://github.com/dsummersl/treepeat) |
 | `vencord-installer` | [Vencord installer CLI](https://github.com/Vencord/Installer) |
+| `vize` | [Vue.js toolchain in Rust](https://github.com/ubugeeei-prod/vize) |
 
-All formulae require Apple Silicon Macs.
+`alcless`, `beankeeper`, `blacksmith`, `canopy`, `codex-security`, `knip`,
+`mewt`, `muton`, `pgrun`, `pplx`, `proton-cli`, `rustfilt` and
+`vencord-installer` install on Apple Silicon only. `ax`, `gh-secure`,
+`mergetopus`, `treepeat` and `vize` install on Intel as well.
 
 ## BusKill
 
@@ -95,17 +110,12 @@ vencord-installer --install --location "/Applications/Discord Development.app"
 ## Upgrade
 
 ```sh
-brew upgrade --cask buskill
-brew upgrade --cask --greedy-auto-updates cua-driver
-brew upgrade --cask --greedy-auto-updates kraken-desktop
-brew upgrade beankeeper mewt muton pgrun proton-cli rustfilt vencord-installer
+brew upgrade --cask --greedy-auto-updates oa/tap/cua-driver oa/tap/kraken-desktop
+brew upgrade
 ```
 
 ## Remove
 
 ```sh
-brew uninstall --zap --cask buskill
-brew uninstall --zap --cask cua-driver
-brew uninstall --zap --cask kraken-desktop
-brew uninstall beankeeper mewt muton pgrun proton-cli rustfilt vencord-installer
+brew uninstall --zap --cask oa/tap/buskill oa/tap/cua-driver oa/tap/kraken-desktop
 ```
