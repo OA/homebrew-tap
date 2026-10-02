@@ -13,6 +13,7 @@ brew tap oa/tap
 brew install --cask buskill
 brew install --cask cua-driver
 brew install --cask kraken-desktop
+brew install --cask tickerbox-cli
 brew install beankeeper
 brew install blacksmith
 brew install knip
@@ -30,6 +31,7 @@ brew install vencord-installer
 | `buskill` | [Laptop kill cord](https://www.buskill.in/) |
 | `cua-driver` | [Computer-use driver](https://cua.ai/docs/cua-driver) |
 | `kraken-desktop` | [Trading terminal](https://www.kraken.com/desktop) |
+| `tickerbox-cli` | [TickerBox device REST client](https://github.com/openbunny/tickerbox-cli) |
 
 | Formula | Tool |
 | --- | --- |
@@ -98,6 +100,7 @@ vencord-installer --install --location "/Applications/Discord Development.app"
 brew upgrade --cask buskill
 brew upgrade --cask --greedy-auto-updates cua-driver
 brew upgrade --cask --greedy-auto-updates kraken-desktop
+brew upgrade --cask tickerbox-cli
 brew upgrade beankeeper mewt muton pgrun proton-cli rustfilt vencord-installer
 ```
 
@@ -107,5 +110,6 @@ brew upgrade beankeeper mewt muton pgrun proton-cli rustfilt vencord-installer
 brew uninstall --zap --cask buskill
 brew uninstall --zap --cask cua-driver
 brew uninstall --zap --cask kraken-desktop
+brew uninstall --zap --cask tickerbox-cli
 brew uninstall beankeeper mewt muton pgrun proton-cli rustfilt vencord-installer
 ```
