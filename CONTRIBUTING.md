@@ -1,6 +1,6 @@
 # Contributing
 
-`AGENTS.md` is the engineering standard.
+[AGENTS.md](AGENTS.md) is the engineering standard.
 [docs/CODING-STANDARD.md](docs/CODING-STANDARD.md) and
 [docs/VOICE.md](docs/VOICE.md) narrow it further. Read all three before
 opening a change.
