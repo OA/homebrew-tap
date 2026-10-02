@@ -134,7 +134,7 @@ Every `uses:` is SHA-pinned with an exact `# vMAJOR.MINOR.PATCH` comment.
 pinact enforces both rules offline. No floating tags.
 
 Permissions are set per-job to the minimum required. Aggregate gate jobs carry
-`permissions: {}`. Prose and workflow jobs run on `blacksmith-4vcpu-ubuntu-2404`.
+`permissions: {}`. Prose and workflow jobs run on `ubuntu-latest`.
 
 ## Commits (organization-wide)
 
@@ -162,7 +162,7 @@ Ruby formatter and linter. `brew audit --cask --online` checks casks,
 added beside them.
 
 The brew job runs on `macos-latest` because `brew style` and `brew audit` need
-Homebrew on macOS. That is the one runner that is not Blacksmith.
+Homebrew on macOS.
 
 A cask checksum is copied from upstream's signed `SHA256SUMS`. A formula
 checksum is verified against the upstream release digest before commit.

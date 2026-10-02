@@ -1,5 +1,0 @@
-# actionlint treats unknown runner labels as typos. Blacksmith is not listed.
-# Path must be .github/actionlint.yaml; a root copy is unread.
-self-hosted-runner:
-  labels:
-    - blacksmith-4vcpu-ubuntu-2404
