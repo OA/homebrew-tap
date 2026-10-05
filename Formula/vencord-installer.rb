@@ -1,8 +1,8 @@
 class VencordInstaller < Formula
   desc "Installer CLI for Vencord"
   homepage "https://github.com/Vencord/Installer"
-  url "https://github.com/Vencord/Installer/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "77e476066cf7d249e43416bc0adbf59f38c32eaee207e72419de706d6ba33fc8"
+  url "https://github.com/Vencord/Installer/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "587f0ee6c60846bfda954223d1944ef66b88ee8682a1ee32e201f4dbd1b0f1de"
   license "GPL-3.0-or-later"
 
   livecheck do
