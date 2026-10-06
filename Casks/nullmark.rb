@@ -1,6 +1,6 @@
 cask "nullmark" do
-  version "0.2.1"
-  sha256 "48a420cf0e1314aeae1f2e149efd1c446e0073b0dec59e3d361c6d07428a8ed4"
+  version "0.3.0"
+  sha256 "c2f19597cac8fdf8f1201c85fd8c820223cbc903ced396cca6c65d3c44cc91cc"
 
   url "https://github.com/openbunny/nullmark/releases/download/v#{version}/Nullmark-#{version}.zip"
   name "Nullmark"
