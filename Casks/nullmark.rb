@@ -1,6 +1,6 @@
 cask "nullmark" do
-  version "0.2.0"
-  sha256 "6b9a555b948121f6844b98e37288ea2eb72f8a70d8f83ab8fffa55ceea3bf168"
+  version "0.2.1"
+  sha256 "48a420cf0e1314aeae1f2e149efd1c446e0073b0dec59e3d361c6d07428a8ed4"
 
   url "https://github.com/openbunny/nullmark/releases/download/v#{version}/Nullmark-#{version}.zip"
   name "Nullmark"
@@ -26,5 +26,11 @@ cask "nullmark" do
 
     Dismiss with Done, then System Settings > Privacy & Security > Open
     Anyway for Nullmark.app.
+
+    macOS writes its own com.apple.quarantine, com.apple.provenance and
+    com.apple.macl extended attributes on every PDF Nullmark exports. The
+    quarantine record names Nullmark as the writing app. Before sharing an
+    export, remove quarantine and macl with: xattr -c <file>
+    macOS refuses removal of com.apple.provenance.
   EOS
 end
