@@ -4,7 +4,7 @@ cask "kaset" do
 
   url "https://github.com/sozercan/kaset/releases/download/v0.14.1/kaset-v0.14.1.dmg"
   name "Kaset"
-  desc "YouTube and YouTube Music app for macOS"
+  desc "YouTube and YouTube Music app"
   homepage "https://github.com/sozercan/kaset"
 
   livecheck do

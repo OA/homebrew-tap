@@ -4,6 +4,11 @@ class Unregistry < Formula
   version "0.4.3"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/psviderski/unregistry/releases/download/v0.4.3/unregistry_0.4.3_darwin_arm64.tar.gz"
@@ -24,11 +29,6 @@ class Unregistry < Formula
       url "https://github.com/psviderski/unregistry/releases/download/v0.4.3/unregistry_0.4.3_linux_amd64.tar.gz"
       sha256 "2c08138c4217f0d66fb31a50e7ce29aafc92b004aa1066e6fbb4e672ed71210a"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

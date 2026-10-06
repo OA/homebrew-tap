@@ -4,6 +4,11 @@ class Pzip < Formula
   version "0.2.0"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/ybirader/pzip/releases/download/v0.2.0/pzip_Darwin_arm64.tar.gz"
@@ -24,11 +29,6 @@ class Pzip < Formula
       url "https://github.com/ybirader/pzip/releases/download/v0.2.0/pzip_Linux_x86_64.tar.gz"
       sha256 "866673c3191c350819a30f877cddef94473336b46f0164621d0c1ab95880e9b9"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

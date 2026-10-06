@@ -4,6 +4,11 @@ class Quill < Formula
   version "0.7.1"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/anchore/quill/releases/download/v0.7.1/quill_0.7.1_darwin_arm64.tar.gz"
@@ -24,11 +29,6 @@ class Quill < Formula
       url "https://github.com/anchore/quill/releases/download/v0.7.1/quill_0.7.1_linux_amd64.tar.gz"
       sha256 "e58c6f86378a22507c1123e24412afd4ee2d3bb32ebd94d6059827dc0c1b3fbf"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

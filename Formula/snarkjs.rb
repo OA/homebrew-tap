@@ -1,5 +1,5 @@
 class Snarkjs < Formula
-  desc "zkSNARK and PLONK implementation in JavaScript and WASM"
+  desc "ZkSNARK and PLONK implementation in JavaScript and WASM"
   homepage "https://github.com/iden3/snarkjs"
   url "https://registry.npmjs.org/snarkjs/-/snarkjs-0.7.6.tgz"
   sha256 "3a2b872e888e093ccee4a0636af4caf52a989c685926e663969a4ce8c2a8ead3"

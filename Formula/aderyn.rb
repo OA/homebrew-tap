@@ -4,6 +4,11 @@ class Aderyn < Formula
   version "0.6.8"
   license "GPL-3.0-only"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/Cyfrin/aderyn/releases/download/aderyn-v0.6.8/aderyn-aarch64-apple-darwin.tar.xz"
@@ -13,11 +18,6 @@ class Aderyn < Formula
       url "https://github.com/Cyfrin/aderyn/releases/download/aderyn-v0.6.8/aderyn-x86_64-apple-darwin.tar.xz"
       sha256 "c2ef361c6b2e24c20d478e6cb30cc427090f29c3501adb7190cb514623ce6d8d"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

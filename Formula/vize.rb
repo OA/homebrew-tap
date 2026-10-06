@@ -4,6 +4,11 @@ class Vize < Formula
   version "0.428.0"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/ubugeeei-prod/vize/releases/download/v0.428.0/vize-aarch64-apple-darwin.tar.gz"
@@ -24,11 +29,6 @@ class Vize < Formula
       url "https://github.com/ubugeeei-prod/vize/releases/download/v0.428.0/vize-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "aa7423656d269aad166f8b41ab3f66e7bdaa506515569ee2287a9c7bded2d389"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

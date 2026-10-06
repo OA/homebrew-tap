@@ -10,8 +10,8 @@ class Mergetopus < Formula
     strategy :github_latest
   end
 
-  depends_on "rust" => :build
   depends_on "oa/tap/cargo-bundle-licenses" => :build
+  depends_on "rust" => :build
 
   def install
     system "cargo-bundle-licenses", "--format", "json", "--output", "THIRDPARTY.json"

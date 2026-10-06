@@ -4,6 +4,11 @@ class Phanalist < Formula
   version "1.1.13"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/denzyldick/phanalist/releases/download/v1.1.13/phanalist-aarch64-apple-darwin.tar.gz"
@@ -24,11 +29,6 @@ class Phanalist < Formula
       url "https://github.com/denzyldick/phanalist/releases/download/v1.1.13/phanalist-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "ddd71eb8a85123436370cd692c912f510ee26af000216c9f620194b18f4ba347"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install
