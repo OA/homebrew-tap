@@ -15,6 +15,17 @@
   customManagers: [
     {
       customType: "regex",
+      managerFilePatterns: ["/^Casks/wormswmd\\.rb$/"],
+      matchStrings: [
+        'cask "wormswmd" do\n  version "(?<currentValue>[^"]+)"\n  sha256 "(?<currentDigest>[a-f0-9]{64})"',
+      ],
+      autoReplaceStringTemplate: 'cask "wormswmd" do\n  version "{{{newValue}}}"\n  sha256 "{{{newDigest}}}"',
+      datasourceTemplate: "custom.wormswmd",
+      depNameTemplate: "wormswmd",
+      versioningTemplate: "semver",
+    },
+    {
+      customType: "regex",
       managerFilePatterns: ["/^Casks/cua-driver\\.rb$/"],
       matchStrings: [
         'cask "cua-driver" do\n  version "(?<currentValue>[^"]+)"\n  sha256 "(?<currentDigest>[a-f0-9]{64})"',
@@ -126,6 +137,12 @@
   ],
 
   customDatasources: {
+    wormswmd: {
+      defaultRegistryUrlTemplate: "https://api.github.com/repos/openbunny/wormswmd/releases?per_page=100",
+      transformTemplates: [
+        '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "wormswmd_" & $version & "_darwin_arm64.tar.gz"].digest, "sha256:") }) }) }',
+      ],
+    },
     "cua-driver": {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/trycua/cua/releases?per_page=100",
       transformTemplates: [
@@ -138,31 +155,31 @@
         '{ "releases": [{ "version": version & "," & revision, "digest": files.macos.sha256 }] }',
       ],
     },
-    "mewt": {
+    mewt: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/trailofbits/mewt/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "mewt-aarch64-apple-darwin.tar.xz"].digest, "sha256:") }) }) }',
       ],
     },
-    "muton": {
+    muton: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/trailofbits/muton/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "muton-aarch64-apple-darwin.tar.xz"].digest, "sha256:") }) }) }',
       ],
     },
-    "beankeeper": {
+    beankeeper: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/Govcraft/beankeeper/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^beankeeper-cli-v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "beankeeper-cli-v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "bk-" & $version & "-aarch64-apple-darwin.tar.gz"].digest, "sha256:") }) }) }',
       ],
     },
-    "pgrun": {
+    pgrun: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/pgrundev/pgrun-cli/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "pgrun_" & $version & "_darwin_arm64.tar.gz"].digest, "sha256:") }) }) }',
       ],
     },
-    "pplx": {
+    pplx: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/perplexityai/perplexity-cli/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+\\.[0-9]+$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "pplx-aarch64-apple-darwin.bin"].digest, "sha256:") }) }) }',
@@ -177,13 +194,13 @@
     // Assets uploaded before GitHub started recording digests carry none, so a
     // release that predates that reaches the PR with an empty sha256 and fails
     // the `smoke` job rather than landing a wrong one.
-    "buskill": {
+    buskill: {
       defaultRegistryUrlTemplate: "https://api.github.com/repos/BusKill/buskill-app/releases?per_page=100",
       transformTemplates: [
         '{ "releases": $map($[$match(tag_name, /^v[0-9]+\\.[0-9]+(\\.[0-9]+)?$/)], function($release) { ($version := $substringAfter($release.tag_name, "v"); { "version": $version, "releaseTimestamp": $release.published_at, "digest": $substringAfter($release.assets[name = "buskill-mac-v" & $version & "-x86_64.dmg"].digest, "sha256:") }) }) }',
       ],
     },
-    "rustfilt": {
+    rustfilt: {
       defaultRegistryUrlTemplate: "https://crates.io/api/v1/crates/rustfilt/versions?per_page=100",
       transformTemplates: [
         '{ "releases": $map($filter(versions, function($v) { $not($v.yanked) }), function($v) { { "version": $v.num, "releaseTimestamp": $v.updated_at, "digest": $v.checksum } }) }',
