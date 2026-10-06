@@ -1,7 +1,6 @@
 class CaptainhookBin < Formula
   desc "Flexible git hook manager for sharing hooks with a team"
   homepage "https://github.com/captainhook-git/captainhook-bin"
-  version "1.4.1"
   license "MIT"
 
   livecheck do

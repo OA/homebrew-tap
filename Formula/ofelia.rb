@@ -1,7 +1,6 @@
 class Ofelia < Formula
   desc "Docker job scheduler (crontab for docker)"
   homepage "https://github.com/mcuadros/ofelia"
-  version "0.3.22"
   license "MIT"
 
   livecheck do

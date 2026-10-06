@@ -1,7 +1,6 @@
 class Bore < Formula
   desc "Simple CLI tool for making tunnels to localhost"
   homepage "https://github.com/ekzhang/bore"
-  version "0.6.0"
   license "MIT"
 
   livecheck do

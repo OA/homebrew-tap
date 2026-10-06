@@ -1,7 +1,6 @@
 class Phanalist < Formula
   desc "Performant static analyzer for PHP"
   homepage "https://github.com/denzyldick/phanalist"
-  version "1.1.13"
   license "MIT"
 
   livecheck do

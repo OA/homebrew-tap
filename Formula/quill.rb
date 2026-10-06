@@ -1,7 +1,6 @@
 class Quill < Formula
   desc "Simple mac binary signing from any platform"
   homepage "https://github.com/anchore/quill"
-  version "0.7.1"
   license "Apache-2.0"
 
   livecheck do

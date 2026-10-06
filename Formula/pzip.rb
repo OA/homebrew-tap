@@ -1,7 +1,6 @@
 class Pzip < Formula
   desc "Blazing fast concurrent zip archiver and extractor"
   homepage "https://github.com/ybirader/pzip"
-  version "0.2.0"
   license "Apache-2.0"
 
   livecheck do

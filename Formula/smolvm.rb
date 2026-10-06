@@ -1,7 +1,6 @@
 class Smolvm < Formula
   desc "Portable, branchable virtual machine for running agents locally"
   homepage "https://github.com/smol-machines/smolvm"
-  version "1.19.2"
   license "Apache-2.0"
 
   livecheck do

@@ -1,7 +1,6 @@
 class Vize < Formula
   desc "High-performance Vue.js toolchain in Rust"
   homepage "https://github.com/ubugeeei-prod/vize"
-  version "0.428.0"
   license "MIT"
 
   livecheck do

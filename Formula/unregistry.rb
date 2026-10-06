@@ -1,7 +1,6 @@
 class Unregistry < Formula
   desc "Push docker images directly to remote servers without an external registry"
   homepage "https://github.com/psviderski/unregistry"
-  version "0.4.3"
   license "Apache-2.0"
 
   livecheck do

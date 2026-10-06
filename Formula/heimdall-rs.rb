@@ -1,7 +1,6 @@
 class HeimdallRs < Formula
   desc "EVM bytecode toolkit for analysing and decompiling unverified contracts"
   homepage "https://github.com/Jon-Becker/heimdall-rs"
-  version "0.9.3"
   license "MIT"
 
   livecheck do

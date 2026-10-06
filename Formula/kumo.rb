@@ -1,7 +1,6 @@
 class Kumo < Formula
   desc "Lightweight AWS service emulator"
   homepage "https://github.com/sivchari/kumo"
-  version "0.30.0"
   license "MIT"
 
   livecheck do
