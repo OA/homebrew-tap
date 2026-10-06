@@ -24,7 +24,7 @@ cask "tickerbox-cli" do
   end
 
   name "tickerbox-cli"
-  desc "Command-line client for a TickerBox device's REST API."
+  desc "Command-line client for a TickerBox device's REST API"
   homepage "https://github.com/openbunny/tickerbox-cli"
 
   livecheck do

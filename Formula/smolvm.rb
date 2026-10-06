@@ -1,8 +1,12 @@
 class Smolvm < Formula
   desc "Portable, branchable virtual machine for running agents locally"
   homepage "https://github.com/smol-machines/smolvm"
-  version "1.19.2"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -20,11 +24,6 @@ class Smolvm < Formula
       url "https://github.com/smol-machines/smolvm/releases/download/v1.19.2/smolvm-1.19.2-linux-x86_64.tar.gz"
       sha256 "eb51bb83ad113030f329bae943be653c192e1e9543e98f502b5a2682033769d8"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

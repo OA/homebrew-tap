@@ -1,8 +1,12 @@
 class Bore < Formula
   desc "Simple CLI tool for making tunnels to localhost"
   homepage "https://github.com/ekzhang/bore"
-  version "0.6.0"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -24,11 +28,6 @@ class Bore < Formula
       url "https://github.com/ekzhang/bore/releases/download/v0.6.0/bore-v0.6.0-x86_64-unknown-linux-musl.tar.gz"
       sha256 "e484d1e3acba77169b773f31a5bfb34192d4b660f44a094a658a2522cd2270f7"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

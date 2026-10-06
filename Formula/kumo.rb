@@ -1,8 +1,12 @@
 class Kumo < Formula
   desc "Lightweight AWS service emulator"
   homepage "https://github.com/sivchari/kumo"
-  version "0.30.0"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -24,11 +28,6 @@ class Kumo < Formula
       url "https://github.com/sivchari/kumo/releases/download/v0.30.0/kumo_0.30.0_linux_amd64.tar.gz"
       sha256 "3f7194c4ee12fda95eb8f60c06f2c38d6014d730dc4dfdb584012a5c546861ef"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

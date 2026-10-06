@@ -10,6 +10,7 @@ brew install --cask oa/tap/buskill
 brew install --cask oa/tap/cua-driver
 brew install --cask oa/tap/kaset
 brew install --cask oa/tap/kraken-desktop
+brew install --cask oa/tap/nullmark
 brew install --cask oa/tap/tickerbox-cli
 brew install --cask oa/tap/wormswmd
 brew install oa/tap/aderyn
@@ -52,6 +53,7 @@ brew install oa/tap/vize
 | `cua-driver` | [Computer-use driver](https://cua.ai/docs/cua-driver) |
 | `kaset` | [YouTube and YouTube Music app](https://github.com/sozercan/kaset) |
 | `kraken-desktop` | [Trading terminal](https://www.kraken.com/desktop) |
+| `nullmark` | [Removes a string from a PDF and verifies its absence](https://github.com/openbunny/nullmark) |
 | `tickerbox-cli` | [TickerBox device REST client](https://github.com/openbunny/tickerbox-cli) |
 | `wormswmd` | [Make Worms W.M.D open on macOS 26 by replacing its Qt frameworks and AGL](https://github.com/openbunny/wormswmd) |
 
@@ -96,7 +98,8 @@ and `vencord-installer` install on Apple Silicon only. `aderyn`, `ax`, `bore`,
 `captainhook-bin`, `cargo-bundle-licenses`, `docker-rollout`, `gh-secure`,
 `heimdall-rs`, `kumo`, `mergetopus`, `ofelia`, `phanalist`, `pzip`, `quill`,
 `treepeat`, `unregistry` and `vize` install on Intel as well. `kaset` requires
-macOS Sequoia or later. `wormswmd` installs on Apple silicon only.
+macOS Sequoia or later. `nullmark` requires macOS 27 or later on Apple silicon.
+`wormswmd` installs on Apple silicon only.
 
 ## wormswmd
 
@@ -160,5 +163,5 @@ brew upgrade
 
 ```sh
 brew uninstall --zap --cask oa/tap/buskill oa/tap/cua-driver oa/tap/kaset \
-  oa/tap/kraken-desktop oa/tap/tickerbox-cli oa/tap/wormswmd
+  oa/tap/kraken-desktop oa/tap/nullmark oa/tap/tickerbox-cli oa/tap/wormswmd
 ```

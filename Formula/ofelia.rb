@@ -1,8 +1,12 @@
 class Ofelia < Formula
   desc "Docker job scheduler (crontab for docker)"
   homepage "https://github.com/mcuadros/ofelia"
-  version "0.3.22"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -24,11 +28,6 @@ class Ofelia < Formula
       url "https://github.com/mcuadros/ofelia/releases/download/v0.3.22/ofelia_0.3.22_linux_amd64.tar.gz"
       sha256 "f1e1b23c59a4fe255484213d87e573f2340fe70c48e6c653ff9ba947ed3bc00e"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install

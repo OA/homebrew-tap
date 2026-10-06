@@ -1,8 +1,12 @@
 class CaptainhookBin < Formula
   desc "Flexible git hook manager for sharing hooks with a team"
   homepage "https://github.com/captainhook-git/captainhook-bin"
-  version "1.4.1"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -24,11 +28,6 @@ class CaptainhookBin < Formula
       url "https://github.com/captainhook-git/captainhook-bin/releases/download/1.4.1/captainhook-bin_Linux_x86_64.tar.gz"
       sha256 "a26c90cd7c071658f4f55b4d7fa7f3ae1f5843331fa5c99c26c2a4c401c39f4d"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install
