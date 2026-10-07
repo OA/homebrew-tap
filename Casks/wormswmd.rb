@@ -1,6 +1,6 @@
 cask "wormswmd" do
-  version "0.1.2"
-  sha256 "61f7043fde4cf08823b95bf6b4d0ef27266f9de972e24116588b5320fe1d7c88"
+  version "0.2.0"
+  sha256 "d3b302048871c87f3893325e14d21bd8874f241286323e7fca33174551b0b92f"
 
   url "https://github.com/openbunny/wormswmd/releases/download/v#{version}/wormswmd_#{version}_darwin_arm64.tar.gz"
   name "wormswmd"
