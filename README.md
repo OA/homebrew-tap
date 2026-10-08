@@ -10,9 +10,22 @@ brew install --cask oa/tap/buskill
 brew install --cask oa/tap/cua-driver
 brew install --cask oa/tap/kaset
 brew install --cask oa/tap/kraken-desktop
+brew install --cask oa/tap/mactap
 brew install --cask oa/tap/nullmark
 brew install --cask oa/tap/tickerbox-cli
 brew install --cask oa/tap/wormswmd
+brew install --cask oa/tap/photocraft
+brew install --cask oa/tap/vectorcraft
+brew install --cask oa/tap/filmcraft
+brew install --cask oa/tap/lightcraft
+brew install --cask oa/tap/pdfcraft
+brew install --cask oa/tap/effectcraft
+brew install --cask oa/tap/designcraft
+brew install --cask oa/tap/deckcraft
+brew install --cask oa/tap/gridcraft
+brew install --cask oa/tap/soundcraft
+brew install --cask oa/tap/cadcraft
+brew install --cask oa/tap/wordcraft
 brew install oa/tap/aderyn
 brew install oa/tap/alcless
 brew install oa/tap/ax
@@ -43,6 +56,18 @@ brew install oa/tap/smolvm
 brew install oa/tap/snarkjs
 brew install oa/tap/treepeat
 brew install oa/tap/unregistry
+brew install oa/tap/photocraft-cli
+brew install oa/tap/vectorcraft-cli
+brew install oa/tap/filmcraft-cli
+brew install oa/tap/lightcraft-cli
+brew install oa/tap/pdfcraft-cli
+brew install oa/tap/effectcraft-cli
+brew install oa/tap/designcraft-cli
+brew install oa/tap/deckcraft-cli
+brew install oa/tap/gridcraft-cli
+brew install oa/tap/soundcraft-cli
+brew install oa/tap/cadcraft-cli
+brew install oa/tap/wordcraft-cli
 brew install oa/tap/vencord-installer
 brew install oa/tap/vize
 ```
@@ -53,9 +78,22 @@ brew install oa/tap/vize
 | `cua-driver` | [Computer-use driver](https://cua.ai/docs/cua-driver) |
 | `kaset` | [YouTube and YouTube Music app](https://github.com/sozercan/kaset) |
 | `kraken-desktop` | [Trading terminal](https://www.kraken.com/desktop) |
+| `mactap` | [Trigger shortcuts by knocking on a MacBook](https://github.com/jaskirat1616/mactap-app) |
 | `nullmark` | [Removes a string from a PDF and verifies its absence](https://github.com/openbunny/nullmark) |
 | `tickerbox-cli` | [TickerBox device REST client](https://github.com/openbunny/tickerbox-cli) |
 | `wormswmd` | [Make Worms W.M.D open on macOS 26 by replacing its Qt frameworks and AGL](https://github.com/openbunny/wormswmd) |
+| `photocraft` | [Image editor](https://github.com/storytold/photocraft) |
+| `vectorcraft` | [Vector illustration](https://github.com/storytold/vectorcraft) |
+| `filmcraft` | [Video editor](https://github.com/storytold/filmcraft) |
+| `lightcraft` | [Photo library and raw developer](https://github.com/storytold/lightcraft) |
+| `pdfcraft` | [PDF workbench](https://github.com/storytold/pdfcraft) |
+| `effectcraft` | [Motion graphics and visual effects](https://github.com/storytold/effectcraft) |
+| `designcraft` | [Page layout and publishing](https://github.com/storytold/designcraft) |
+| `deckcraft` | [Presentations and slide shows](https://github.com/storytold/deckcraft) |
+| `gridcraft` | [Spreadsheet](https://github.com/storytold/gridcraft) |
+| `soundcraft` | [Digital audio workstation](https://github.com/storytold/soundcraft) |
+| `cadcraft` | [Computer-aided design and drafting](https://github.com/storytold/cadcraft) |
+| `wordcraft` | [Word processor](https://github.com/storytold/wordcraft) |
 
 | Formula | Tool |
 | --- | --- |
@@ -91,14 +129,30 @@ brew install oa/tap/vize
 | `unregistry` | [Push Docker images to remote servers without a registry](https://github.com/psviderski/unregistry) |
 | `vencord-installer` | [Vencord installer CLI](https://github.com/Vencord/Installer) |
 | `vize` | [Vue.js toolchain in Rust](https://github.com/ubugeeei-prod/vize) |
+| `photocraft-cli` | [PhotoCraft command-line interface](https://github.com/storytold/photocraft) |
+| `vectorcraft-cli` | [VectorCraft command-line interface](https://github.com/storytold/vectorcraft) |
+| `filmcraft-cli` | [FilmCraft command-line interface](https://github.com/storytold/filmcraft) |
+| `lightcraft-cli` | [LightCraft command-line interface](https://github.com/storytold/lightcraft) |
+| `pdfcraft-cli` | [PdfCraft command-line interface](https://github.com/storytold/pdfcraft) |
+| `effectcraft-cli` | [EffectCraft command-line interface](https://github.com/storytold/effectcraft) |
+| `designcraft-cli` | [DesignCraft command-line interface](https://github.com/storytold/designcraft) |
+| `deckcraft-cli` | [DeckCraft command-line interface](https://github.com/storytold/deckcraft) |
+| `gridcraft-cli` | [GridCraft command-line interface](https://github.com/storytold/gridcraft) |
+| `soundcraft-cli` | [SoundCraft command-line interface](https://github.com/storytold/soundcraft) |
+| `cadcraft-cli` | [CADCraft command-line interface](https://github.com/storytold/cadcraft) |
+| `wordcraft-cli` | [WordCraft command-line interface](https://github.com/storytold/wordcraft) |
 
 `alcless`, `beankeeper`, `blacksmith`, `canopy`, `codex-security`, `knip`,
 `mewt`, `muton`, `pgrun`, `pplx`, `proton-cli`, `rustfilt`, `smolvm`, `snarkjs`
 and `vencord-installer` install on Apple Silicon only. `aderyn`, `ax`, `bore`,
-`captainhook-bin`, `cargo-bundle-licenses`, `docker-rollout`, `gh-secure`,
-`heimdall-rs`, `kumo`, `mergetopus`, `ofelia`, `phanalist`, `pzip`, `quill`,
-`treepeat`, `unregistry` and `vize` install on Intel as well. `kaset` requires
-macOS Sequoia or later. `nullmark` requires macOS 27 or later on Apple silicon.
+`cadcraft-cli`, `captainhook-bin`, `cargo-bundle-licenses`, `deckcraft-cli`,
+`designcraft-cli`, `docker-rollout`, `effectcraft-cli`, `filmcraft-cli`,
+`gh-secure`, `gridcraft-cli`, `heimdall-rs`, `kumo`, `lightcraft-cli`,
+`mergetopus`, `ofelia`, `pdfcraft-cli`, `phanalist`, `photocraft-cli`, `pzip`,
+`quill`, `soundcraft-cli`, `treepeat`, `unregistry`, `vectorcraft-cli`, `vize`
+and `wordcraft-cli` install on Intel as well. `kaset` requires
+macOS Sequoia or later. `mactap` requires macOS Sonoma or later on Apple
+silicon. `nullmark` requires macOS 27 or later on Apple silicon.
 `wormswmd` installs on Apple silicon only.
 
 ## wormswmd
