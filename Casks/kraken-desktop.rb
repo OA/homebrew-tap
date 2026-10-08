@@ -1,6 +1,6 @@
 cask "kraken-desktop" do
-  version "1.31.0,dc6d99cc41457d763ab66d7947c9dfbd47e63416"
-  sha256 "1553fc65045686dc11e5dadf0cb5c5c7971b57a63eefc0972a49c83a0147b438"
+  version "1.32.0,ebeca4bc7490b75e0cbb492bb785e3c9b63ec2b2"
+  sha256 "54259c60e65123e36e10deb027b61624c1bd4ae2e71a113061e8a22b2e09e433"
 
   url "https://desktop-downloads.kraken.com/#{version.csv.second}/kraken-universal-apple-darwin.zip"
   name "Kraken Desktop"
