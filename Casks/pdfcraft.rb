@@ -12,5 +12,7 @@ cask "pdfcraft" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "PdfCraft.app"
 end

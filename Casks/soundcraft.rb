@@ -12,5 +12,7 @@ cask "soundcraft" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "SoundCraft.app"
 end

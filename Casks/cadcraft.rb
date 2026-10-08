@@ -12,5 +12,7 @@ cask "cadcraft" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "CADCraft.app"
 end

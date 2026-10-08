@@ -12,5 +12,7 @@ cask "lightcraft" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "LightCraft.app"
 end
