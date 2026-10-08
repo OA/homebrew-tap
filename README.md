@@ -54,6 +54,7 @@ brew install oa/tap/quill
 brew install oa/tap/rustfilt
 brew install oa/tap/smolvm
 brew install oa/tap/snarkjs
+brew install oa/tap/steam-lancache-prefill
 brew install oa/tap/treepeat
 brew install oa/tap/unregistry
 brew install oa/tap/photocraft-cli
@@ -125,6 +126,7 @@ brew install oa/tap/vize
 | `rustfilt` | [Rust symbol demangler](https://github.com/luser/rustfilt) |
 | `smolvm` | [Branchable local VM for agents](https://github.com/smol-machines/smolvm) |
 | `snarkjs` | [zkSNARK and PLONK implementation](https://github.com/iden3/snarkjs) |
+| `steam-lancache-prefill` | [Prime a Lancache with Steam games](https://github.com/tpill90/steam-lancache-prefill) |
 | `treepeat` | [Duplicate code finder over tree-sitter ASTs](https://github.com/dsummersl/treepeat) |
 | `unregistry` | [Push Docker images to remote servers without a registry](https://github.com/psviderski/unregistry) |
 | `vencord-installer` | [Vencord installer CLI](https://github.com/Vencord/Installer) |
@@ -149,7 +151,7 @@ and `vencord-installer` install on Apple Silicon only. `aderyn`, `ax`, `bore`,
 `designcraft-cli`, `docker-rollout`, `effectcraft-cli`, `filmcraft-cli`,
 `gh-secure`, `gridcraft-cli`, `heimdall-rs`, `kumo`, `lightcraft-cli`,
 `mergetopus`, `ofelia`, `pdfcraft-cli`, `phanalist`, `photocraft-cli`, `pzip`,
-`quill`, `soundcraft-cli`, `treepeat`, `unregistry`, `vectorcraft-cli`, `vize`
+`quill`, `soundcraft-cli`, `steam-lancache-prefill`, `treepeat`, `unregistry`, `vectorcraft-cli`, `vize`
 and `wordcraft-cli` install on Intel as well. `kaset` requires
 macOS Sequoia or later. `mactap` requires macOS Sonoma or later on Apple
 silicon. `nullmark` requires macOS 27 or later on Apple silicon.
