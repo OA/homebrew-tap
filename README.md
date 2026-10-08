@@ -50,6 +50,7 @@ brew install oa/tap/phanalist
 brew install oa/tap/pplx
 brew install oa/tap/proton-cli
 brew install oa/tap/pzip
+brew install oa/tap/steam-lancache-prefill
 brew install oa/tap/quill
 brew install oa/tap/rustfilt
 brew install oa/tap/smolvm
@@ -121,6 +122,7 @@ brew install oa/tap/vize
 | `pplx` | [Perplexity AI CLI](https://github.com/perplexityai/perplexity-cli) |
 | `proton-cli` | [CLI for Proton Mail, Drive, Calendar, Pass and Contacts](https://github.com/roman-16/proton-cli) |
 | `pzip` | [Concurrent zip archiver and extractor](https://github.com/ybirader/pzip) |
+| `steam-lancache-prefill` | [Prime a Lancache with Steam games](https://github.com/tpill90/steam-lancache-prefill) |
 | `quill` | [Mac binary signing from any platform](https://github.com/anchore/quill) |
 | `rustfilt` | [Rust symbol demangler](https://github.com/luser/rustfilt) |
 | `smolvm` | [Branchable local VM for agents](https://github.com/smol-machines/smolvm) |
@@ -149,7 +151,7 @@ and `vencord-installer` install on Apple Silicon only. `aderyn`, `ax`, `bore`,
 `designcraft-cli`, `docker-rollout`, `effectcraft-cli`, `filmcraft-cli`,
 `gh-secure`, `gridcraft-cli`, `heimdall-rs`, `kumo`, `lightcraft-cli`,
 `mergetopus`, `ofelia`, `pdfcraft-cli`, `phanalist`, `photocraft-cli`, `pzip`,
-`quill`, `soundcraft-cli`, `treepeat`, `unregistry`, `vectorcraft-cli`, `vize`
+`quill`, `soundcraft-cli`, `steam-lancache-prefill`, `treepeat`, `unregistry`, `vectorcraft-cli`, `vize`
 and `wordcraft-cli` install on Intel as well. `kaset` requires
 macOS Sequoia or later. `mactap` requires macOS Sonoma or later on Apple
 silicon. `nullmark` requires macOS 27 or later on Apple silicon.
