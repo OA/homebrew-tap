@@ -13,7 +13,7 @@ class PdfcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "pdfcraft-cli-#{version}-macos-universal/pdfcraft-cli"
+    bin.install "pdfcraft-cli"
   end
 
   test do

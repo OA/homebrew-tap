@@ -136,6 +136,66 @@ jobs:
             binary: bk
             versioned-app: false
           - cask: ""
+            formula: photocraft-cli
+            app: ""
+            binary: photocraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: vectorcraft-cli
+            app: ""
+            binary: vectorcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: filmcraft-cli
+            app: ""
+            binary: filmcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: lightcraft-cli
+            app: ""
+            binary: lightcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: pdfcraft-cli
+            app: ""
+            binary: pdfcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: effectcraft-cli
+            app: ""
+            binary: effectcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: designcraft-cli
+            app: ""
+            binary: designcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: deckcraft-cli
+            app: ""
+            binary: deckcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: gridcraft-cli
+            app: ""
+            binary: gridcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: soundcraft-cli
+            app: ""
+            binary: soundcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: cadcraft-cli
+            app: ""
+            binary: cadcraft-cli
+            versioned-app: false
+          - cask: ""
+            formula: wordcraft-cli
+            app: ""
+            binary: wordcraft-cli
+            versioned-app: false
+          - cask: ""
             formula: mewt
             app: ""
             binary: mewt

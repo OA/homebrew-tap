@@ -13,7 +13,7 @@ class EffectcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "effectcraft-cli-#{version}-macos-universal/effectcraft-cli"
+    bin.install "effectcraft-cli"
   end
 
   test do

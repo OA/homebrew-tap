@@ -13,7 +13,7 @@ class DesigncraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "designcraft-cli-#{version}-macos-universal/designcraft-cli"
+    bin.install "designcraft-cli"
   end
 
   test do

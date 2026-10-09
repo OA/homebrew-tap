@@ -13,7 +13,7 @@ class WordcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "wordcraft-cli-#{version}-macos-universal/wordcraft-cli"
+    bin.install "wordcraft-cli"
   end
 
   test do

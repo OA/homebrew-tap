@@ -13,7 +13,7 @@ class LightcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "lightcraft-cli-#{version}-macos-universal/lightcraft-cli"
+    bin.install "lightcraft-cli"
   end
 
   test do

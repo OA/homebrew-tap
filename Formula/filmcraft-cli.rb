@@ -13,7 +13,7 @@ class FilmcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "filmcraft-cli-#{version}-macos-universal/filmcraft-cli"
+    bin.install "filmcraft-cli"
   end
 
   test do

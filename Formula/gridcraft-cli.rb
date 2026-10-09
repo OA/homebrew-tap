@@ -13,7 +13,7 @@ class GridcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "gridcraft-cli-#{version}-macos-universal/gridcraft-cli"
+    bin.install "gridcraft-cli"
   end
 
   test do

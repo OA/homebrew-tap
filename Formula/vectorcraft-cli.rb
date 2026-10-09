@@ -13,7 +13,7 @@ class VectorcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "vectorcraft-cli-#{version}-macos-universal/vectorcraft-cli"
+    bin.install "vectorcraft-cli"
   end
 
   test do

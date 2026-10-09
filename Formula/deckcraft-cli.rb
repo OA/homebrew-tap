@@ -13,7 +13,7 @@ class DeckcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "deckcraft-cli-#{version}-macos-universal/deckcraft-cli"
+    bin.install "deckcraft-cli"
   end
 
   test do

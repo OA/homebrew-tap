@@ -13,7 +13,7 @@ class PhotocraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "photocraft-cli-#{version}-macos-universal/photocraft-cli"
+    bin.install "photocraft-cli"
   end
 
   test do

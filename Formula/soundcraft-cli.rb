@@ -13,7 +13,7 @@ class SoundcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "soundcraft-cli-#{version}-macos-universal/soundcraft-cli"
+    bin.install "soundcraft-cli"
   end
 
   test do

@@ -13,7 +13,7 @@ class CadcraftCli < Formula
   depends_on :macos
 
   def install
-    bin.install "cadcraft-cli-#{version}-macos-universal/cadcraft-cli"
+    bin.install "cadcraft-cli"
   end
 
   test do
