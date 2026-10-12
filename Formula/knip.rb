@@ -1,8 +1,8 @@
 class Knip < Formula
   desc "Find unused files, dependencies and exports in JavaScript and TypeScript"
   homepage "https://knip.dev"
-  url "https://registry.npmjs.org/knip/-/knip-6.35.1.tgz"
-  sha256 "7fdd9e7b874debb9a8673bfbdc24e3bd7bd3074318590346524b1ae9ea9c9e14"
+  url "https://registry.npmjs.org/knip/-/knip-6.41.0.tgz"
+  sha256 "17fb66978f94396a16e4e7247fbdce08b61991a8d628309f91e8a1abe0186b83"
   license "ISC"
 
   livecheck do
